@@ -10,10 +10,14 @@ Team Members:
 
 Work to Do
 
-- Frontend
+- Client Side
 
 1. Home page---Kartik
 2. Product Page/catagories---Ashish Gupta
 3. Single Product/Cart Page--Abhishek
 4. Loging/Signup/Logout/Navbar/Footer---sumit
 5. Checkout--Uday
+
+-Admin Side
+
+6. Admin Page--Uday

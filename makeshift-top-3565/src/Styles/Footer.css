@@ -104,6 +104,13 @@
     padding-right: 5px;
     background-color: #f0f0f0;
 }
+.Each_row>p:hover{
+    color: #6cd138;
+}
+.p_deatails>p:hover{
+    color:#318065;
+}
+
 
   /* Styles for medium screens */
   @media only screen and (max-width: 768px) {

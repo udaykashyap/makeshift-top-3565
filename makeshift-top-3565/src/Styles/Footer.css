@@ -1,0 +1,113 @@
+.Full_footer {
+    width: 75%;
+    padding-top: 20px;
+    margin: auto;
+}
+
+.Footer_row {
+
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    justify-content: space-between;
+}
+
+.Footer_row p {
+    font-size: 14px;
+}
+
+.Each_row {
+    text-align: left;
+    font-size: 13px;
+}
+
+.Footer_head {
+    color: #6cd138;
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.Social_logo_div {
+    display: flex;
+    /* border: 1px solid; */
+}
+
+.Social_logo_div img {
+    width: 40px;
+    margin-right: 10px;
+    background-color: white;
+}
+
+.Footer_detail {
+    padding-top: 20px;
+}
+
+.EachDetail {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.H5_deatail {
+    width: 150px;
+    border: 1px solid;
+    text-align: left;
+}
+
+.H_deatails {
+    width: 250px;
+    color: #6cd138;
+    flex-wrap: wrap;
+    font-size: 16px;
+    margin-right: 30px;
+    text-align: left;
+        font-weight: 500;
+}
+
+.p_deatails {
+    width: 150vh;
+    flex-wrap: wrap;
+    text-align: left;
+}
+.p_deatails>p{
+    font-size: 14px;
+}
+.p_deatails>img{
+    height: 50px;
+    width: 600px;
+}
+.BorderDiv{
+    border: 1px solid;
+    padding:15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.Big-Font{
+    font-size: 25px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.Small-font{
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 5px;
+}
+.BorderDiv>ul{
+    margin-left: 20px;
+}
+.ReadmoreButton{
+    /* border: 1px solid; */
+    text-align: left;
+}
+.ReadmoreButton>button{
+    border: 1px solid;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #f0f0f0;
+}
+
+  /* Styles for medium screens */
+  @media only screen and (max-width: 768px) {
+    .Footer_row {
+      grid-template-columns: 3 fr;
+    }
+  }

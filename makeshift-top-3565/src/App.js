@@ -1,22 +1,21 @@
-<<<<<<< HEAD
+
 import './App.css';
-=======
 import "./App.css";
+import { ChakraProvider } from '@chakra-ui/react'
 import SingleProduct from "./components/SingleProduct";
->>>>>>> 28b47aa37e2e0d3863344958c420d667c8d0efc7
 
 import logo from './logo.svg';
+import Home from './components/Home';
 
 function App() {
-<<<<<<< HEAD
   return (
+  <ChakraProvider>
     <div className="App">
       <h1>Hi this is the first page</h1>
+      <Home/>
     </div>
+      </ChakraProvider>
   );
-=======
-  return <div className="App">{/* <SingleProduct /> */}</div>;
->>>>>>> 28b47aa37e2e0d3863344958c420d667c8d0efc7
 }
 
 export default App;

@@ -1,22 +1,14 @@
-<<<<<<< HEAD
-import './App.css';
-=======
-import "./App.css";
-import SingleProduct from "./components/SingleProduct";
->>>>>>> 28b47aa37e2e0d3863344958c420d667c8d0efc7
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+import React from 'react'
 
-import logo from './logo.svg';
-
-function App() {
-<<<<<<< HEAD
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hi this is the first page</h1>
+    <div>
+      <Navbar/>
+      <Footer/>
     </div>
-  );
-=======
-  return <div className="App">{/* <SingleProduct /> */}</div>;
->>>>>>> 28b47aa37e2e0d3863344958c420d667c8d0efc7
+  )
 }
 
-export default App;
+export default App

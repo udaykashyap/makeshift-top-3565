@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Progress } from '@chakra-ui/react'
 import "../App.css";
 import axios from "axios";
 import ProductDetails from "./ProductDetails";
@@ -373,7 +374,23 @@ const SingleProduct = () => {
         <div>
           <div>
             <h2>4.2 *</h2>
-            <p></p>
+            <div style={{display:"grid", gridTemplateColumns:"repeat(1,auto)",gap:"8px"}}>
+            <div style={{display:"flex",width:"240px", border:"1px solid gray", height:"10px", borderRadius:"4px"}}>
+            <p style={{width:"70%", height:"10px", backgroundColor:"green", marginTop:"0px"}}></p>
+            </div>
+            <div style={{display:"flex",width:"20px", border:"1px solid gray", height:"10px", borderRadius:"4px"}}>
+            <p style={{width:"70%", height:"10px", backgroundColor:"green", marginTop:"0px"}}></p>
+            </div>
+            <div style={{display:"flex",width:"20px", border:"1px solid gray", height:"10px", borderRadius:"4px"}}>
+            <p style={{width:"70%", height:"10px", backgroundColor:"green", marginTop:"0px"}}></p>
+            </div>
+            <div style={{display:"flex",width:"20px", border:"1px solid gray", height:"10px", borderRadius:"4px"}}>
+            <p style={{width:"70%", height:"10px", backgroundColor:"yellow", marginTop:"0px"}}></p>
+            </div>
+            <div style={{display:"flex",width:"20px", border:"1px solid gray", height:"10px", borderRadius:"4px"}}>
+            <p style={{width:"70%", height:"10px", backgroundColor:"red", marginTop:"0px"}}></p>
+            </div>
+            </div>
             <hr />
           </div>
           <div></div>

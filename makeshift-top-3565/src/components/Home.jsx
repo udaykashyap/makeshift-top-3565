@@ -78,6 +78,7 @@ export default function Home() {
       position={'relative'}
       height={'400px'}
       width={'full'}
+      className="first"
       overflow={'hidden'}>
       <link
         rel="stylesheet"

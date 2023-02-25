@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Progress } from "@chakra-ui/react";
 import "../App.css";
 import axios from "axios";
 // import ProductDetails from "./ProductDetails";
 const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState([]);
-  const [quantity, setQuantity] = useState(1);
+  const [basket,setBasket]=useState(0);
   let id = 2;
 
   let num = Number(singleProduct.price) / 250;
@@ -22,10 +21,11 @@ const SingleProduct = () => {
     getSingleProduct();
   }, []);
 
-  const handleChange = (e) => {
-    setQuantity(e.target.value);
-  };
-
+  const handleClick=(e)=>{
+    setBasket((prev)=>prev+1);
+    console.log(e);
+  }
+  console.log()
   return (
     <div style={{ width: "70%", margin: "auto", marginTop: "20px" }}>
       <div style={{ display: "flex", gap: "40px" }}>
@@ -73,8 +73,8 @@ const SingleProduct = () => {
                 padding: "20px 58px",
                 backgroundColor: "red",
                 border: "none",
-                
               }}
+              onClick={(e)=>handleClick(e)}
             >
               ADD TO BASKET
             </button>
@@ -221,7 +221,7 @@ const SingleProduct = () => {
               backgroundColor: "white",
             }}
           >
-            +2 More Combos {" "}
+            +2 More Combos{" "}
           </button>
         </div>
         {/* <SingleProduct title={singleProduct.title}/> */}
@@ -495,22 +495,35 @@ const SingleProduct = () => {
             <h3>Product Reviews</h3>
             <div>
               <div>
-                <h4 style={{ backgroundColor: "greenyellow", width:"26px",borderRadius:"10px",height:"20px" ,textAlign:"center"}}>
-                  {" "}
-                  5*
-                  <span style={{ color: "gray", fontWeight:"lighter", marginLeft:"16px" }}>
+                <div style={{ display: "flex" }}>
+                  <h4
+                    style={{
+                      background: "green",
+                      width: "30px",
+                      textAlign: "center",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    5*
+                  </h4>
+                  <h4 style={{ color: "black", marginLeft: "16px" }}>
                     very tasty and healthy drink
-                  </span>
-                </h4>
-                <p>an excellent healthy and tasty energy drink</p>
+                  </h4>
+                </div>
+                <p style={{ marginTop: "-10px" }}>
+                  an excellent healthy and tasty energy drink
+                </p>
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "50% 10%",
                     justifyContent: "space-between",
+                    marginTop: "-18px",
                   }}
                 >
-                  <p></p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Maaz Asjad, (2 months ago)
+                  </p>
                   <div style={{ width: "100%", display: "flex", gap: "10px" }}>
                     <button
                       style={{
@@ -545,19 +558,33 @@ const SingleProduct = () => {
               </div>
               <hr />
               <div>
-                <h5>
-                  {" "}
-                  <span></span>
-                </h5>
-                <p></p>
+                <div style={{ display: "flex" }}>
+                  <h4
+                    style={{
+                      background: "green",
+                      width: "30px",
+                      textAlign: "center",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    4*
+                  </h4>
+                  <h4 style={{ color: "black", marginLeft: "16px" }}>
+                    I like this product
+                  </h4>
+                </div>
+                <p style={{ marginTop: "-10px" }}>Awesome Product ?</p>
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "50% 10%",
                     justifyContent: "space-between",
+                    marginTop: "-18px",
                   }}
                 >
-                  <p></p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Prasad Rao, (5 months ago)
+                  </p>
                   <div style={{ width: "100%", display: "flex", gap: "10px" }}>
                     <button
                       style={{
@@ -592,19 +619,35 @@ const SingleProduct = () => {
               </div>
               <hr />
               <div>
-                <h5>
-                  {" "}
-                  <span></span>
-                </h5>
-                <p></p>
+                <div style={{ display: "flex" }}>
+                  <h4
+                    style={{
+                      background: "green",
+                      width: "30px",
+                      textAlign: "center",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    5*
+                  </h4>
+                  <h4 style={{ color: "black", marginLeft: "16px" }}>
+                    average
+                  </h4>
+                </div>
+                <p style={{ marginTop: "-10px" }}>
+                  product received on MRP, it is not consumer friendly
+                </p>
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "50% 10%",
                     justifyContent: "space-between",
+                    marginTop: "-18px",
                   }}
                 >
-                  <p></p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Parshuram, Surat(4 months ago)
+                  </p>
                   <div style={{ width: "100%", display: "flex", gap: "10px" }}>
                     <button
                       style={{
@@ -639,19 +682,33 @@ const SingleProduct = () => {
               </div>
               <hr />
               <div>
-                <h5>
-                  {" "}
-                  <span></span>
-                </h5>
-                <p></p>
+                <div style={{ display: "flex" }}>
+                  <h4
+                    style={{
+                      background: "green",
+                      width: "30px",
+                      textAlign: "center",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    5*
+                  </h4>
+                  <h4 style={{ color: "black", marginLeft: "16px" }}>
+                    I am fully satisfied
+                  </h4>
+                </div>
+                <p style={{ marginTop: "-10px" }}>Very very good service</p>
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "50% 10%",
                     justifyContent: "space-between",
+                    marginTop: "-18px",
                   }}
                 >
-                  <p></p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Debasis Banerjee, Kolkata Rural(3 months ago)
+                  </p>
                   <div style={{ width: "100%", display: "flex", gap: "10px" }}>
                     <button
                       style={{
@@ -685,8 +742,18 @@ const SingleProduct = () => {
                 </div>
               </div>
             </div>
-            {/* <hr /> */}
           </div>
+        </div>
+      </div>
+      <div style={{ marginTop: "40px" }}>
+        <h2 style={{ textAlign: "center" }}>You may like to view more in</h2>
+        <div style={{ display: "flex", justifyContent: "center", gap: "30px" }}>
+          <button style={{ padding: "10px 20px", borderRadius: "20px" }}>
+            COUNTRY OF ORIGIN: India{" "}
+          </button>
+          <button style={{ padding: "10px 20px", borderRadius: "20px" }}>
+            FOOD PREFERENCE :Vegetarian
+          </button>
         </div>
       </div>
     </div>

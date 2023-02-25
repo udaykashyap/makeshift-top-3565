@@ -1,4 +1,5 @@
 import React from 'react'
+import Dropdown from './Dropdown'
 
 const Navbar = () => {
   return (
@@ -10,9 +11,9 @@ const Navbar = () => {
           </a>
         </li>
         <li className="nav-item">
-          <a href="/shop" className="nav-link">
-            Shop
-          </a>
+          
+            <Dropdown/>
+          
         </li>
         <li className="nav-item">
           <a href="/cart" className="nav-link">

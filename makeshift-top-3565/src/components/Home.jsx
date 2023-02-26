@@ -11,6 +11,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 
 // Settings for the slider
 const settings = {
@@ -43,7 +44,7 @@ export default function Home() {
 
   },[counter])
 
-  console.log(counter)
+  // console.log(counter)
 
   const cards = [
     {
@@ -72,13 +73,14 @@ export default function Home() {
   ];
 
   return (
+     <Link to="/product">
     <>
-      
     <Box
       position={'relative'}
+      mt="100px"
       height={'400px'}
       width={'full'}
-      overflow={'hidden'}>
+      overflow="hidden">
       <link
         rel="stylesheet"
         type="text/css"
@@ -92,7 +94,7 @@ export default function Home() {
       />
       <Box
       position="absolute"
-      zIndex={2}
+      zIndex={1}
       // margin={"auto"}
       textAlign="center"
       marginTop={"356px"}
@@ -652,5 +654,6 @@ Did you ever imagine that the freshest of <span>fruits and vegetables</span>, to
 
 </div>
 </>
+</Link>
   );
 }

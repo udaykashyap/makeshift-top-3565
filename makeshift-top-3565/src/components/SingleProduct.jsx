@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Progress } from "@chakra-ui/react";
 import "../App.css";
+import { Button, Heading } from '@chakra-ui/react'
 import axios from "axios";
 // import ProductDetails from "./ProductDetails";
 const SingleProduct = () => {
   const [singleProduct, setSingleProduct] = useState([]);
-  const [quantity, setQuantity] = useState(1);
-  let id = 2;
+  const [basket,setBasket]=useState(0);
+  let id = "608";
 
   let num = Number(singleProduct.price) / 250;
   num = num.toFixed(2);
@@ -14,7 +14,7 @@ const SingleProduct = () => {
   // https://fakestoreapi.com/products/${id}
   const getSingleProduct = () => {
     axios
-      .get(`https://fakestoreapi.com/products/${id}`)
+      .get(`http://localhost:3000/all_products/${id}`)
       .then((res) => setSingleProduct(res.data));
   };
 
@@ -22,10 +22,11 @@ const SingleProduct = () => {
     getSingleProduct();
   }, []);
 
-  const handleChange = (e) => {
-    setQuantity(e.target.value);
-  };
-
+  const handleClick=(e)=>{
+    setBasket((prev)=>prev+1);
+    // console.log(e);
+  }
+  
   return (
     <div style={{ width: "70%", margin: "auto", marginTop: "20px" }}>
       <div style={{ display: "flex", gap: "40px" }}>
@@ -44,8 +45,8 @@ const SingleProduct = () => {
           />
         </div>
         <div style={{ textAlign: "left" }}>
-          <button>Fresho</button>
-          <p style={{ fontSize: "22px" }}>{singleProduct.title}</p>
+          <button style={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",padding:"4px 10px",borderRadius:"5px"}}>Fresho</button>
+          <h3 style={{ fontSize: "26px" }}>{singleProduct.title}</h3>
           <h3>
             Price: ₹ {singleProduct.price}{" "}
             <span style={{ fontWeight: "normal", fontSize: "14px" }}>
@@ -53,7 +54,7 @@ const SingleProduct = () => {
               (₹ {num}/g)
             </span>
           </h3>
-          <p style={{ color: "red" }}>
+          <p style={{ color: "red", fontSize:"20px" }}>
             You Save {Math.round(Number(Math.random() * 40))}%
           </p>
           <p>Inclusive of all taxes</p>
@@ -70,11 +71,11 @@ const SingleProduct = () => {
                 color: "white",
                 fontWeight: "bold",
                 borderRadius: "4px",
-                padding: "20px 58px",
+                padding: "12px 58px",
                 backgroundColor: "red",
                 border: "none",
-                
               }}
+              onClick={(e)=>handleClick(e)}
             >
               ADD TO BASKET
             </button>
@@ -83,7 +84,7 @@ const SingleProduct = () => {
                 display: "flex",
                 gap: "6px",
                 backgroundColor: "white",
-                padding: "5px 58px",
+                padding: "10px 58px",
                 border: "1px solid gray",
                 alignItems: "center",
               }}
@@ -94,7 +95,7 @@ const SingleProduct = () => {
                 src="https://cdn-icons-png.flaticon.com/128/5662/5662990.png"
                 alt=""
               />
-              <p style={{ fontWeight: "bold", fontSize: "14px" }}>
+              <p style={{ fontWeight: "bold", fontSize: "16px" }}>
                 Save for later
               </p>
             </button>
@@ -131,7 +132,7 @@ const SingleProduct = () => {
                 border: "1px solid gray",
                 width: "98%",
                 justifyContent: "space-between",
-                padding: "0 0 0 10px",
+                padding: "10px 0 10px 10px",
               }}
             >
               <p>250 g</p>
@@ -161,7 +162,7 @@ const SingleProduct = () => {
                 border: "1px solid gray",
                 width: "98%",
                 justifyContent: "space-between",
-                padding: "0 0 0 10px",
+                padding: "10px 0 10px 10px"
               }}
             >
               <p>1 kg</p>
@@ -191,7 +192,7 @@ const SingleProduct = () => {
                 border: "1px solid gray",
                 width: "98%",
                 justifyContent: "space-between",
-                padding: "0 0 0 10px",
+                padding: "10px 0 10px 10px"
               }}
             >
               <p>500 g</p>
@@ -221,62 +222,60 @@ const SingleProduct = () => {
               backgroundColor: "white",
             }}
           >
-            +2 More Combos {" "}
+            +2 More Combos{" "}
           </button>
         </div>
         {/* <SingleProduct title={singleProduct.title}/> */}
       </div>
       <hr />
-      <div>
-        <h4>Why choose Bigbasket?</h4>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
-          <div>
+      <div style={{marginTop:"16px",marginBottom:"14px"}}>
+      <Heading as='h3' size='md'>
+    Why Choose Bigbasket
+  </Heading>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)",marginTop:"10px" }}>
+          <div style={{textAlign:"center", display:"grid", gridTemplateColumns:"repeat(1,auto)",justifyContent:"center"}}>
             <img
               style={{ width: "100px" }}
               src="https://cdn-icons-png.flaticon.com/128/5959/5959993.png"
               alt=""
             />
-            <h5 style={{ marginBottom: "-10px" }}>Quality</h5>
+            <Heading as='h5' size='sm'>Quality</Heading>
             <p style={{ fontSize: "14px" }}>You can trust</p>
           </div>
-          <div>
+          <div style={{textAlign:"center", display:"grid", gridTemplateColumns:"repeat(1,auto)",justifyContent:"center"}}>
             <img
               style={{ width: "100px" }}
               src="https://cdn-icons-png.flaticon.com/128/86/86093.png"
               alt=""
             />
-            <h5 style={{ marginBottom: "-10px" }}>On time</h5>
+            <Heading as='h5' size='sm'>On time</Heading>
             <p style={{ fontSize: "14px" }}>Guarantee</p>
           </div>
-          <div>
+          <div style={{textAlign:"center", display:"grid", gridTemplateColumns:"repeat(1,auto)",justifyContent:"center"}}>
             <img
               style={{ width: "100px" }}
               src="https://cdn-icons-png.flaticon.com/128/411/411776.png"
               alt=""
             />
-            <h5 style={{ marginBottom: "-10px" }}>Free</h5>
+            <Heading as='h5' size='sm'>Free</Heading>
             <p style={{ fontSize: "14px" }}>Delivery</p>
           </div>
-          <div>
+          <div style={{textAlign:"center", display:"grid", gridTemplateColumns:"repeat(1,auto)",justifyContent:"center"}}>
             <img
               style={{ width: "100px" }}
               src="https://cdn-icons-png.flaticon.com/128/9408/9408601.png"
               alt=""
             />
-            <h5 style={{ marginBottom: "-10px" }}>Return Policy</h5>
+            <Heading as='h5' size='sm'>Return Policy</Heading>
             <p style={{ fontSize: "14px" }}>No Question asked</p>
           </div>
         </div>
       </div>
 
-      <h3>{singleProduct.title}</h3>
-      <div style={{ border: "1px solid gray", padding: "0px 5px" }}>
+      <Heading as='h3' size='md' >{singleProduct.title}</Heading>
+      <div style={{ border: "1px solid gray", padding: "0px 5px", marginTop:"10px" }}>
         <div>
-          <p
-            style={{ color: "black", textAlign: "left", marginBottom: "-10px" }}
-          >
-            About the Product
-          </p>
+        <Heading as='h6' size='sm' mb="10px">About the Product</Heading>
           <p style={{ textAlign: "justify", fontSize: "14px" }}>
             {singleProduct.title} Lorem ipsum dolor sit amet consectetur
             adipisicing elit. Nesciunt, possimus quos. Natus assumenda suscipit
@@ -290,7 +289,7 @@ const SingleProduct = () => {
         </div>
         <hr />
         <div>
-          <p style={{ marginBottom: "-10px", textAlign: "left" }}>Ingrdients</p>
+        <Heading as='h5' size='sm' mb="10px">Ingredients</Heading>
           <p style={{ textAlign: "justify", fontSize: "14px" }}>
             Malt Extract (50%), Sugar, Milk Solids, Maltodextrin, Cocoa Solids,
             Emulsifiers (471, 322), Raising agent (500(ii)), Vitamins, Minerals,
@@ -300,10 +299,8 @@ const SingleProduct = () => {
         </div>
         <hr />
         <div>
-          <p style={{ marginBottom: "-10px", textAlign: "left" }}>
-            Nutritional Facts
-          </p>
-          <p style={{ textAlign: "justify", fontSize: "14px" }}>
+        <Heading as='h5' size='sm' > Nutritional Facts</Heading>
+          <p style={{ textAlign: "justify", fontSize: "16px" }}>
             {" "}
             Values per 100 gm
           </p>
@@ -311,7 +308,7 @@ const SingleProduct = () => {
             style={{
               textAlign: "justify",
               fontSize: "12px",
-              marginTop: "-10px",
+              marginLeft:"18px"
             }}
           >
             <li>Energy (kcal) - 391</li>
@@ -322,7 +319,7 @@ const SingleProduct = () => {
         </div>
         <hr />
         <div>
-          <p style={{ marginBottom: "10px", textAlign: "left" }}>How to use</p>
+        <Heading as='h5' size='sm' mb="10px">How to Use</Heading>
           <ul
             style={{
               textAlign: "justify",
@@ -343,9 +340,7 @@ const SingleProduct = () => {
         </div>
         <hr />
         <div style={{ fontSize: "12px", textAlign: "left" }}>
-          <p style={{ fontSize: "14px", marginBottom: "-10px" }}>
-            Other Product Info
-          </p>
+        <Heading as='h5' size='sm' mb="4px">Other Product Info</Heading>
           <p>
             EAN Code: 7622201766191
             <br />
@@ -373,18 +368,22 @@ const SingleProduct = () => {
           Want to rate this product? You can rate or review this product only
           after purchasing from bigbasket
         </p>
-        <div style={{ display: "grid", gridTemplateColumns: "400px 780px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "400px 780px",marginTop:"20px", }}>
           <div
             style={{
-              width: "180px",
-              height: "180px",
+              width: "280px",
+              
+              height: "240px",
               border: "1px solid gray",
               display: "grid",
-              padding: "0px 80px 80px",
+              justifyContent:"center",
+              alignItems:"center",
+              padding:"20px 0px",
+              marginBottom:"20px"
             }}
           >
-            <h2 style={{ color: "rgb(7, 111, 7)", fontSize: "32px" }}>4.2 *</h2>
-            <p style={{ marginTop: "-20px" }}>814 reviews & 21 reviews</p>
+            <Heading as='h3' size='lg' color= "rgb(7, 111, 7)" mt="-10px">4.2 *</Heading>
+            <p style={{ marginTop: "-20px",marginBottom:"-10px" }}>814 reviews & 21 reviews</p>
             <div
               style={{
                 display: "grid",
@@ -492,25 +491,38 @@ const SingleProduct = () => {
               padding: "10px 20px",
             }}
           >
-            <h3>Product Reviews</h3>
+            <Heading as='h5' size='sm' mb="10px">Product Reviews</Heading>
             <div>
               <div>
-                <h4 style={{ backgroundColor: "greenyellow", width:"26px",borderRadius:"10px",height:"20px" ,textAlign:"center"}}>
-                  {" "}
-                  5*
-                  <span style={{ color: "gray", fontWeight:"lighter", marginLeft:"16px" }}>
-                    very tasty and healthy drink
-                  </span>
-                </h4>
-                <p>an excellent healthy and tasty energy drink</p>
+                <div style={{ display: "flex" }}>
+                  <h4
+                    style={{
+                      background: "green",
+                      width: "30px",
+                      textAlign: "center",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    5*
+                  </h4>
+                  <Heading as='h5' size='sm' ml="10px">  very tasty and healthy drink</Heading>
+                  
+                  
+                </div>
+                <p >
+                  an excellent healthy and tasty energy drink
+                </p>
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "50% 10%",
                     justifyContent: "space-between",
+                    alignItems:"center"
                   }}
                 >
-                  <p></p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Maaz Asjad, (2 months ago)
+                  </p>
                   <div style={{ width: "100%", display: "flex", gap: "10px" }}>
                     <button
                       style={{
@@ -545,19 +557,31 @@ const SingleProduct = () => {
               </div>
               <hr />
               <div>
-                <h5>
-                  {" "}
-                  <span></span>
-                </h5>
-                <p></p>
+                <div style={{ display: "flex" }}>
+                  <h4
+                    style={{
+                      background: "green",
+                      width: "30px",
+                      textAlign: "center",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    4*
+                  </h4>
+                  <Heading as='h5' size='sm' ml="10px">  I like this product</Heading>
+                  </div>
+                <p>Awesome Product ?</p>
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "50% 10%",
                     justifyContent: "space-between",
+                    alignItems:"center"
                   }}
                 >
-                  <p></p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Prasad Rao, (5 months ago)
+                  </p>
                   <div style={{ width: "100%", display: "flex", gap: "10px" }}>
                     <button
                       style={{
@@ -592,19 +616,33 @@ const SingleProduct = () => {
               </div>
               <hr />
               <div>
-                <h5>
-                  {" "}
-                  <span></span>
-                </h5>
-                <p></p>
+                <div style={{ display: "flex" }}>
+                  <h4
+                    style={{
+                      background: "green",
+                      width: "30px",
+                      textAlign: "center",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    5*
+                  </h4>
+                  <Heading as='h5' size='sm' ml="10px">Average Product</Heading>
+                </div>
+                <p>
+                  product received on MRP, it is not consumer friendly
+                </p>
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "50% 10%",
                     justifyContent: "space-between",
+                    alignItems:"center"
                   }}
                 >
-                  <p></p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Parshuram, Surat(4 months ago)
+                  </p>
                   <div style={{ width: "100%", display: "flex", gap: "10px" }}>
                     <button
                       style={{
@@ -639,19 +677,31 @@ const SingleProduct = () => {
               </div>
               <hr />
               <div>
-                <h5>
-                  {" "}
-                  <span></span>
-                </h5>
-                <p></p>
+                <div style={{ display: "flex" }}>
+                  <h4
+                    style={{
+                      background: "green",
+                      width: "30px",
+                      textAlign: "center",
+                      borderRadius: "10px",
+                    }}
+                  >
+                    5*
+                  </h4>
+                  <Heading as='h5' size='sm' ml="10px">I am fully satisfied</Heading>
+                </div>
+                <p>Very very good service</p>
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "50% 10%",
                     justifyContent: "space-between",
+                    alignItems:"center"
                   }}
                 >
-                  <p></p>
+                  <p style={{ color: "gray", fontSize: "12px" }}>
+                    Debasis Banerjee, Kolkata Rural(3 months ago)
+                  </p>
                   <div style={{ width: "100%", display: "flex", gap: "10px" }}>
                     <button
                       style={{
@@ -685,8 +735,18 @@ const SingleProduct = () => {
                 </div>
               </div>
             </div>
-            {/* <hr /> */}
           </div>
+        </div>
+      </div>
+      <div style={{ marginTop: "40px" }}>
+      <Heading as='h3' size='md' mb="10px" textAlign="center">You may like to view more in</Heading>
+        <div style={{ display: "flex", justifyContent: "center", gap: "30px" }}>
+          <Button style={{ padding: "10px 20px", borderRadius: "20px" }}>
+            COUNTRY OF ORIGIN: India{" "}
+          </Button>
+          <Button borderRadius="16px">
+            FOOD PREFERENCE :Vegetarian
+          </Button>
         </div>
       </div>
     </div>

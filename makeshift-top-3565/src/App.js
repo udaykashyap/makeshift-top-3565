@@ -1,18 +1,18 @@
-import Footer from './components/Footer'
-import Navbar from './components/Navbar'
-import React from 'react'
-import CheckoutPage from './components/CheckoutPage'
-import MainRouter from './page/MainRouter'
+import React from "react";
 
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+
+import SingleProduct from "./components/SingleProduct";
+import MainRouter from "./page/MainRouter";
 const App = () => {
   return (
     <div>
       <Navbar />
-      <MainRouter/>
-      <CheckoutPage />
+      <MainRouter />
       <Footer />
     </div>
-  )
-}
-
-export default App
+  );
+};
+export default App;

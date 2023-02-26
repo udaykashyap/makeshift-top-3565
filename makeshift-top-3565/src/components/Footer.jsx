@@ -6,7 +6,7 @@ import React from "react"
 
 const Footer = () => {
     return (
-        <div className="Full_footer">
+        <div className="Full_footer" style={{marginTop:"100px"}}>
             <div className="Footer_row">
                 <div className="Each_row">
                     <h4 className="Footer_head">Bigbasket</h4>

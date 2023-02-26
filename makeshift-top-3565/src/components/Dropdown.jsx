@@ -9,7 +9,7 @@ const Dropdown = () => {
     useEffect(()=>{
         navigate(`/product/${cat}`)
     },[cat])
-    console.log(cat)
+    // console.log(cat)
   return (
     <div>
 <Select m="auto" w="15%" placeholder='Shop' onChange={(e)=>setcat(e.target.value)}>

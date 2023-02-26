@@ -2,7 +2,7 @@ import { Box, Button, Heading, Image, Input, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const Productcard = ({el}) => {
-    console.log(el,"cs")
+    
     
   return (
     <Box>

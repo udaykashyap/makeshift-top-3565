@@ -14,8 +14,8 @@ Work to Do
 
 1. Home page---Kartik
 2. Product Page/catagories---Ashish Gupta
-3. Single Product/Cart Page--Abhishek
-4. Loging/Signup/Logout/Navbar/Footer---sumit
+3. Navbar/Login/Signup/Single Product--Abhishek
+4. Logout/Footer---sumit
 5. Checkout--Uday
 
 -Admin Side
